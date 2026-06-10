@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Your Trip | Planora</title>
 
-    <link rel="stylesheet" href="static/generate.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='generate.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
+<div id="toast" class="toast">
+    Step 1 completed successfully ✨
+</div>
 <body>
 
 <div class="trip-container">
@@ -30,35 +33,35 @@
 
     <div class="stepper">
 
-        <div class="step active">
+    <div class="step active" id="stepIndicator1">
 
-            <div class="step-circle">1</div>
+        <div class="step-circle">1</div>
 
-            <span>Trip Details</span>
-
-        </div>
-
-        <div class="line"></div>
-
-        <div class="step">
-
-            <div class="step-circle">2</div>
-
-            <span>Add Members</span>
-
-        </div>
-
-        <div class="line"></div>
-
-        <div class="step">
-
-            <div class="step-circle">3</div>
-
-            <span>Review & Plan</span>
-
-        </div>
+        <span>Trip Details</span>
 
     </div>
+
+    <div class="line"></div>
+
+    <div class="step" id="stepIndicator2">
+
+        <div class="step-circle">2</div>
+
+        <span>Add Members</span>
+
+    </div>
+
+    <div class="line"></div>
+
+    <div class="step" id="stepIndicator3">
+
+        <div class="step-circle">3</div>
+
+        <span>Review & Plan</span>
+
+    </div>
+
+</div>
 
     <!-- STEP 1 -->
 
@@ -69,7 +72,7 @@
             <div class="grid">
 
                 <div class="input-group">
-                    <label>Trip Name</label>
+                    <label class="form-label">Trip Name</label>
 
                     <input
                         type="text"
@@ -79,7 +82,7 @@
 
                 <div class="input-group">
 
-                    <label>Destination Preference</label>
+                    <label class="form-label">Destination Preference</label>
 
                     <select id="destination">
 
@@ -105,7 +108,7 @@
 
                 <div class="input-group">
 
-                    <label>Start Date</label>
+                    <label class="form-label">Start Date</label>
 
                     <input
                         type="date"
@@ -115,7 +118,7 @@
 
                 <div class="input-group">
 
-                    <label>End Date</label>
+                    <label class="form-label">End Date</label>
 
                     <input
                         type="date"
@@ -129,7 +132,7 @@
 
                 <div class="input-group">
 
-                    <label>Total Budget</label>
+                    <label class="form-label">Total Budget</label>
 
                     <input
                         type="number"
@@ -140,7 +143,7 @@
 
                 <div class="input-group">
 
-                    <label>Number of Members</label>
+                    <label class="form-label">Number of Members</label>
 
                     <input
                         type="number"
@@ -153,37 +156,37 @@
 
             <div class="input-group">
 
-                <label>
+                <label class="form-label">
                     Trip Interests
                 </label>
 
                 <div class="interests">
 
-                    <button type="button" class="interest-btn">
+                    <button type="button" class="interest-btn" value="Beaches">
                         Beaches
                     </button>
 
-                    <button type="button" class="interest-btn">
+                    <button type="button" class="interest-btn" value="Mountains">
                         Mountains
                     </button>
 
-                    <button type="button" class="interest-btn">
+                    <button type="button" class="interest-btn" value="Adventure">
                         Adventure
                     </button>
 
-                    <button type="button" class="interest-btn">
+                    <button type="button" class="interest-btn" value="Food">
                         Food
                     </button>
 
-                    <button type="button" class="interest-btn">
+                    <button type="button" class="interest-btn" value="Nightlife">
                         Nightlife
                     </button>
 
-                    <button type="button" class="interest-btn">
+                    <button type="button" class="interest-btn" value="Culture">
                         Culture
                     </button>
 
-                    <button type="button" class="interest-btn">
+                    <button type="button" class="interest-btn" value="Nature">
                         Nature
                     </button>
 
@@ -193,7 +196,7 @@
 
             <div class="input-group">
 
-                <label>Additional Notes</label>
+                <label class="form-label">Additional Notes</label>
 
                 <textarea
                     id="notes"
@@ -209,7 +212,7 @@
                     id="nextBtn"
                     class="primary-btn">
 
-                    Next: Add Members →
+                    Add Members →
 
                 </button>
 
@@ -219,9 +222,141 @@
 
     </section>
 
+    <section id="step2" class="card">
+
+    <div class="step-header">
+
+        <h2>Add Members</h2>
+
+        <p>
+            Add each traveler's preferences
+        </p>
+
+    </div>
+
+    <div class="member-form">
+
+        <div class="grid">
+
+            <div class="input-group">
+
+                <label class="form-label">Member Name</label>
+
+                <input
+                    type="text"
+                    id="memberName"
+                    placeholder="e.g., Rahul">
+
+            </div>
+
+            <div class="input-group">
+
+                <label class="form-label">Personal Budget</label>
+
+                <input
+                    type="number"
+                    id="memberBudget"
+                    placeholder="e.g., 10000">
+
+            </div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label class="form-label">Interests</label>
+
+            <div class="member-interests">
+
+                <button type="button" class="member-interest" value="Food">
+                    Food
+                </button>
+
+                <button type="button" class="member-interest" value="Adventure">
+                    Adventure
+                </button>
+
+                <button type="button" class="member-interest" value="Nature">
+                    Nature
+                </button>
+
+                <button type="button" class="member-interest" value="Nightlife">
+                    Nightlife
+                </button>
+
+                <button type="button" class="member-interest" value="Culture">
+                    Culture
+                </button>
+
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            id="addMemberBtn"
+            class="primary-btn">
+
+            Add Member
+
+        </button>
+
+    </div>
+
+    <div id="membersContainer">
+
+    </div>
+
+    <div class="button-row">
+
+        <button
+            type="button"
+            id="reviewBtn"
+            class="primary-btn">
+
+            Review Trip →
+
+        </button>
+
+    </div>
+
+</section>
+
+<section id="step3" class="card">
+
+    <div class="step-header">
+
+        <h2>Review & Plan</h2>
+
+        <p>
+            Review everyone's preferences
+        </p>
+
+    </div>
+
+    <div id="reviewContainer">
+
+    </div>
+
+    <div class="button-row">
+
+        <button
+            id="generatePlanBtn"
+            class="primary-btn">
+
+            Generate Plan ✨
+
+        </button>
+
+    </div>
+
+</section>
+
 </div>
 
-<script src="generate.js"></script>
+
+
+<script src="{{ url_for('static', filename='js/generate.js') }}"></script>
 
 </body>
 </html>

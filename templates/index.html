@@ -6,15 +6,17 @@
     <title>Planora</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
 <div class="container">
 
-    <!-- NAVBAR -->
     <nav>
         <ul class="nav-left">
             <li><a href="#">Home</a></li>
@@ -22,191 +24,136 @@
         </ul>
 
         <div class="logo">
-            <img src="/images/logoplanora.png" alt="">
+            <img src="{{ url_for('static', filename='images/logoplanora.png') }}" alt="Planora Logo">
             <h2>Planora</h2>
         </div>
 
         <ul class="nav-right">
-            <li><a href="#">Generate</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ url_for('generate') }}">Generate</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
-
         <div class="hero-text">
             <h1>
-    Always on time.<br>
-    Always on
-    <span class="scribble-word">
-        plan
-
-        <svg class="scribble"
-             viewBox="0 0 240 90">
-
-            <path d="
-                M20 45
-                C40 10,200 10,220 42
-                C225 72,60 82,22 55
-                C15 50,15 48,20 45
-            "/>
-
-        </svg>
-
-    </span>.
-</h1>
+                Always on time.<br> Always on
+                <span class="scribble-word">
+                    plan
+                    <svg class="scribble" viewBox="0 0 240 90">
+                        <path d="M20 45 C40 10,200 10,220 42 C225 72,60 82,22 55 C15 50,15 48,20 45"/>
+                    </svg>
+                </span>.
+            </h1>
+            
             <p>
                 Planora uses AI to craft personalized, time-optimized
                 travel itineraries so you never have to stress about
                 what's next —
             </p>
 
-           <button onclick="location.href='generate.html'">Try Now</button>
+            <a href="{{ url_for('generate') }}">
+                <button type="button">Try Now</button>
+            </a>
         </div>
 
         <div class="hero-image">
-            <img src="/images/hero.png" alt="">
+            <img src="{{ url_for('static', filename='images/hero.png') }}" alt="Planora App Preview">
         </div>
-
     </section>
 
-    <!-- FEATURES TITLE -->
     <section class="intro">
         <h2>AI-powered planning that fits your time, style, and budget.</h2>
-
         <p>
             From flights and food to hidden gems and local experiences,
             Planora creates the perfect trip itinerary in seconds —
         </p>
     </section>
 
-    <!-- FEATURES -->
     <section class="features">
-
         <div class="card">
             <span class="bg-number">01</span>
-
-            <img src="/images/feature1.png" alt="">
-
+            <img src="{{ url_for('static', filename='images/feature1.png') }}" alt="Personalised Icon">
             <h3>Personalised<br>Suggestions</h3>
-
-            <p>
-                Say goodbye to manual planning —
-                let AI handle the details.
-            </p>
+            <p>Say goodbye to manual planning — let AI handle the details.</p>
         </div>
 
         <div class="card">
             <span class="bg-number">02</span>
-
-            <img src="/images/feature2.png" alt="">
-
+            <img src="{{ url_for('static', filename='images/feature2.png') }}" alt="Mapping Icon">
             <h3>Journey fully<br>Mapped</h3>
-
-            <p>
-                Because trying should be spontaneous —
-                not stressful.
-            </p>
+            <p>Because trying should be spontaneous — not stressful.</p>
         </div>
 
         <div class="card">
             <span class="bg-number">03</span>
-
-            <img src="/images/feature3.png" alt="">
-
+            <img src="{{ url_for('static', filename='images/feature3.png') }}" alt="Fingertips Icon">
             <h3>At your<br>Fingertips</h3>
-
-            <p>
-                Smart, fast, and tailored travel
-                plans for every traveler.
-            </p>
+            <p>Smart, fast, and tailored travel plans for every traveler.</p>
         </div>
-
     </section>
 
-    <!-- CTA -->
     <section class="cta">
-
         <div class="cta-content">
             <h2>
-                Your time is valuable —
-                <em>Planora</em> makes
-                sure every minute is meaningful.
+                Your time is valuable — <em>Planora</em> makes sure every minute is meaningful.
             </h2>
-
             <p>
                 Contact the developer for future collaborations,
                 fresh concepts, or just to break the loop.
                 She's always up for building something better.
             </p>
-
             <a href="#contact" class="contact-btn">Contact Me</a>
         </div>
 
         <div class="cta-image">
-            <img src="/images/cta.png" alt="">
+            <img src="{{ url_for('static', filename='images/cta.png') }}" alt="Collaboration Visual">
         </div>
-
     </section>
 
-    <!-- CONTACT -->
     <section class="contact" id="contact">
-
         <h1>Contact Me</h1>
 
         <div class="contact-wrapper">
-
             <div class="contact-form">
-
                 <input type="text" placeholder="Full Name">
-
                 <input type="email" placeholder="E-mail">
-
                 <textarea placeholder="Message"></textarea>
-
                 <button>Send Message</button>
-
             </div>
 
             <div class="contact-info">
-
-                <div>
+                <div class="info-block">
                     <h3>Contact</h3>
                     <p>anandita.raj27@gmail.com</p>
                 </div>
 
-                <div>
+                <div class="info-block">
                     <h3>Based in</h3>
                     <p>Kolkata,<br>India</p>
                 </div>
-            <div class="socials">
-              <h3>Other Social links:</h3>
-              <div class="social-icons">
-                <a href="https://github.com/ananditaraj" target="_blank">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://linkedin.com/in/ananditaraj/"
-                  target="_blank"
-                >
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:anandita.raj27@gmail.com">
-                  <i class="fas fa-envelope"></i>
-                </a>
-              </div>
 
-            <div class="contact-details">
-              <h3>Contact:</h3>
-              <p>+91 76026 52638</p>
+                <div class="socials">
+                    <h3>Other Social links:</h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/ananditaraj" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/ananditaraj/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:anandita.raj27@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-details">
+                    <h3>Contact Phone:</h3>
+                    <p>+91 76026 52638</p>
+                </div>
             </div>
-          </div>
-
-            </div>
-
         </div>
-
     </section>
 
 </div>
