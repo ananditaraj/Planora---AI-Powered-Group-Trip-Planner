@@ -1,0 +1,341 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:#f6f7fb;
+    color:#2e2e2e;
+    min-height:100vh;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.trip-container{
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px 80px;
+}
+
+.page-header{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.page-header h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:3rem;
+    font-weight:700;
+}
+
+.page-header p{
+    font-size:1rem;
+    color:#757276;
+}
+
+/* =========================
+   STEPPER
+========================= */
+
+.stepper{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.step{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:180px;
+}
+
+.step-circle{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#d9d9d9;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+}
+
+.step.active .step-circle{
+    background:#E3B7BA;
+}
+
+.step span{
+    margin-top:12px;
+    font-size:15px;
+}
+
+.step.active span{
+    color:#E3B7BA;
+    font-weight:600;
+}
+
+.line{
+    width:160px;
+    height:2px;
+    background:#dbe2ea;
+    margin-top:20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   FORM
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    margin-bottom:30px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:25px;
+}
+
+.input-group label{
+    font-weight:600;
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+
+    width:100%;
+
+    border:1px solid #d8dee9;
+
+    border-radius:12px;
+
+    padding:16px 18px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:0.3s ease;
+
+    background:white;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+
+    border-color:#E3B7BA;
+
+    box-shadow:
+    0 0 0 4px rgba(235, 37, 172, 0.1);
+}
+.input-group input,
+.input-group select,
+.input-group textarea{
+    caret-color:#E3B7BA;
+}
+
+textarea{
+    resize:none;
+}
+
+/* =========================
+   INTERESTS
+========================= */
+
+.interests{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.interest-btn{
+
+    border:1px solid #d8dee9;
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:12px 18px;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+
+    font-size:15px;
+}
+
+.interest-btn:hover{
+
+    border-color:#E3B7BA;
+
+    color:#E3B7BA;
+}
+
+.interest-btn.active{
+
+    background:#E3B7BA;
+
+    color:white;
+
+    border-color:#E3B7BA;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button-row{
+
+    display:flex;
+    justify-content:flex-end;
+
+    margin-top:20px;
+}
+
+.primary-btn{
+
+    border:none;
+
+    background:#E3B7BA;
+
+    color:white;
+
+    padding:16px 35px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:600;
+
+    transition:0.3s ease;
+}
+
+.primary-btn:hover{
+
+    background:#E3B7BA;
+
+    transform:translateY(-2px);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+    .page-header h1{
+        font-size:2.4rem;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .step{
+        min-width:120px;
+    }
+
+    .line{
+        width:80px;
+    }
+
+    .card{
+        padding:30px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .trip-container{
+        padding:30px 15px 60px;
+    }
+
+    .page-header h1{
+        font-size:2rem;
+    }
+
+    .page-header p{
+        font-size:1rem;
+    }
+
+    .stepper{
+        transform:scale(.9);
+    }
+
+    .step{
+        min-width:90px;
+    }
+
+    .line{
+        width:40px;
+    }
+
+    .step span{
+        font-size:12px;
+        text-align:center;
+    }
+
+    .card{
+        padding:20px;
+        border-radius:16px;
+    }
+
+    .input-group label{
+        font-size:16px;
+    }
+
+    .interest-btn{
+        width:100%;
+    }
+
+    .button-row{
+        justify-content:center;
+    }
+
+    .primary-btn{
+        width:100%;
+    }
+}
