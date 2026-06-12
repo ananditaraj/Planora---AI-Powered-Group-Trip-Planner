@@ -1,7 +1,7 @@
 # ✿ Planora — AI-Powered Group Travel Planner
 
 <p align="center">
-  <img src="./assets/banner.png" alt="Planora Banner" width="100%" />
+  <img src="./assests/banner.png" alt="Planora Banner" width="100%" />
 </p>
 
 <p center align="center">
