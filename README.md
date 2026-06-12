@@ -45,11 +45,11 @@ Planning trips with a group is historically chaotic—bogged down by endless cha
 
 | Landing Interface | Workspace Dashboard |
 |---|---|
-| ![Landing](./assets/landing-page.png) | ![Dashboard](./assets/dashboard.png) |
+| ![Landing](./assests/landing-page.png) | ![Dashboard](./assests/dashboard.png) |
 
 | Operational Hub | Dynamic Review Matrix |
 |---|---|
-| ![Members](./assets/members.png) | ![Review](./assets/review-page.png) |
+| ![Members](./assests/members.png) | ![Review](./assests/review.png) |
 
 ---
 
@@ -61,13 +61,103 @@ Planning trips with a group is historically chaotic—bogged down by endless cha
 * **Client Data Pipeline:** Web Storage API (LocalStorage Event Buffering).
 ---
 
-## 📂 Repository Blueprint
+## 📂 Repository Structure
+
+```text
 Planora/
 │
-├── assets/           # Digital media models & interface branding components
-├── css/              # Minimal layout systems & variable specifications
-├── js/               # Core execution scripts & async API worker engines
-├── pages/            # Structural workspace routing layout blocks
-├── index.html        # Main client entry lifecycle file
-├── README.md         # Documentation layout index
-└── LICENSE           # MIT Specification
+├── assets/                 # Images, illustrations, icons, and branding assets
+├── css/                    # Global stylesheets and responsive UI components
+├── js/                     # Frontend logic, API integrations, and utility scripts
+├── pages/                  # Trip creation, review, and planning workflows
+├── backend/                # Flask backend services and AI orchestration logic
+├── prompts/                # Gemini prompt templates and JSON schemas
+├── screenshots/            # README demo images and product previews
+├── index.html              # Landing page and application entry point
+├── README.md               # Documentation and setup guide
+└── LICENSE                 # MIT License
+```
+
+## 🚀 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/ananditaraj/Planora---AI-Powered-Group-Trip-Planner.git
+```
+
+### Navigate to the Project Directory
+
+```bash
+cd Planora---AI-Powered-Group-Trip-Planner
+```
+
+### Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+### Install Backend Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+### Start the Backend Server
+
+```bash
+cd backend
+python app.py
+```
+
+or, if using Flask:
+
+```bash
+flask run
+```
+
+### Launch the Frontend
+
+Open the application locally using:
+
+```bash
+npm start
+```
+
+or simply open:
+
+```text
+index.html
+```
+
+in your browser if no frontend build tool is configured.
+
+---
+
+## 📦 Requirements
+
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- npm
+
+### Backend
+
+- Python 3.10+
+- Flask
+- Google Gemini API
+- python-dotenv
+
+---
+
