@@ -4,359 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Your Trip | Planora</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='generate.css') }}">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
-<div id="toast" class="toast">
-    Step 1 completed successfully ✨
-</div>
 <body>
 
+<div id="toast" class="toast">Step 1 completed successfully</div>
+
 <div class="trip-container">
-
-    <!-- HEADER -->
-
     <div class="page-header">
-
         <h1>Create Your Trip</h1>
-        <p>
-            Tell us about your trip and group preferences
-        </p>
-
+        <p>Tell us about your trip and group preferences</p>
     </div>
-
-    <!-- PROGRESS BAR -->
 
     <div class="stepper">
-
-    <div class="step active" id="stepIndicator1">
-
-        <div class="step-circle">1</div>
-
-        <span>Trip Details</span>
-
+        <div class="step active" id="stepIndicator1"><div class="step-circle">1</div><span>Trip Details</span></div>
+        <div class="line"></div>
+        <div class="step" id="stepIndicator2"><div class="step-circle">2</div><span>Add Members</span></div>
+        <div class="line"></div>
+        <div class="step" id="stepIndicator3"><div class="step-circle">3</div><span>Review & Plan</span></div>
     </div>
-
-    <div class="line"></div>
-
-    <div class="step" id="stepIndicator2">
-
-        <div class="step-circle">2</div>
-
-        <span>Add Members</span>
-
-    </div>
-
-    <div class="line"></div>
-
-    <div class="step" id="stepIndicator3">
-
-        <div class="step-circle">3</div>
-
-        <span>Review & Plan</span>
-
-    </div>
-
-</div>
-
-    <!-- STEP 1 -->
 
     <section id="step1" class="card">
-
         <form id="tripForm">
-
             <div class="grid">
-
                 <div class="input-group">
                     <label class="form-label">Trip Name</label>
-
-                    <input
-                        type="text"
-                        id="tripName"
-                        placeholder="e.g., Goa Getaway">
+                    <input type="text" id="tripName" placeholder="e.g., Goa Getaway">
                 </div>
-
                 <div class="input-group">
-
                     <label class="form-label">Destination Preference</label>
-
                     <select id="destination">
-
                         <option value="">Anywhere</option>
-
-                        <option>Beach</option>
-
-                        <option>Mountains</option>
-
-                        <option>Adventure</option>
-
-                        <option>Culture</option>
-
-                        <option>Nature</option>
-
+                        <option value="Beach">Beach</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Culture">Culture</option>
+                        <option value="Nature">Nature</option>
                     </select>
-
                 </div>
-
             </div>
-
             <div class="grid">
-
                 <div class="input-group">
-
                     <label class="form-label">Start Date</label>
-
-                    <input
-                        type="date"
-                        id="startDate">
-
+                    <input type="date" id="startDate">
                 </div>
-
                 <div class="input-group">
-
                     <label class="form-label">End Date</label>
-
-                    <input
-                        type="date"
-                        id="endDate">
-
+                    <input type="date" id="endDate">
                 </div>
-
             </div>
-
             <div class="grid">
-
                 <div class="input-group">
-
                     <label class="form-label">Total Budget</label>
-
-                    <input
-                        type="number"
-                        id="budget"
-                        placeholder="e.g., 50000">
-
+                    <input type="number" id="budget" placeholder="e.g., 50000">
                 </div>
-
                 <div class="input-group">
-
                     <label class="form-label">Number of Members</label>
-
-                    <input
-                        type="number"
-                        id="memberCount"
-                        placeholder="e.g., 4">
-
+                    <input type="number" id="memberCount" placeholder="e.g., 4">
                 </div>
-
             </div>
-
             <div class="input-group">
-
-                <label class="form-label">
-                    Trip Interests
-                </label>
-
+                <label class="form-label">Trip Interests</label>
                 <div class="interests">
-
-                    <button type="button" class="interest-btn" value="Beaches">
-                        Beaches
-                    </button>
-
-                    <button type="button" class="interest-btn" value="Mountains">
-                        Mountains
-                    </button>
-
-                    <button type="button" class="interest-btn" value="Adventure">
-                        Adventure
-                    </button>
-
-                    <button type="button" class="interest-btn" value="Food">
-                        Food
-                    </button>
-
-                    <button type="button" class="interest-btn" value="Nightlife">
-                        Nightlife
-                    </button>
-
-                    <button type="button" class="interest-btn" value="Culture">
-                        Culture
-                    </button>
-
-                    <button type="button" class="interest-btn" value="Nature">
-                        Nature
-                    </button>
-
+                    <button type="button" class="interest-btn" value="Beaches">Beaches</button>
+                    <button type="button" class="interest-btn" value="Mountains">Mountains</button>
+                    <button type="button" class="interest-btn" value="Adventure">Adventure</button>
+                    <button type="button" class="interest-btn" value="Food">Food</button>
+                    <button type="button" class="interest-btn" value="Nightlife">Nightlife</button>
+                    <button type="button" class="interest-btn" value="Culture">Culture</button>
+                    <button type="button" class="interest-btn" value="Nature">Nature</button>
                 </div>
-
             </div>
-
             <div class="input-group">
-
                 <label class="form-label">Additional Notes</label>
-
-                <textarea
-                    id="notes"
-                    rows="5"
-                    placeholder="Any special preferences or notes for the trip..."></textarea>
-
+                <textarea id="notes" rows="5" placeholder="Any special preferences..."></textarea>
             </div>
-
             <div class="button-row">
-
-                <button
-                    type="button"
-                    id="nextBtn"
-                    class="primary-btn">
-
-                    Add Members →
-
-                </button>
-
+                <button type="button" id="nextBtn" class="primary-btn">Add Members →</button>
             </div>
-
         </form>
-
     </section>
 
     <section id="step2" class="card">
-
-    <div class="step-header">
-
-        <h2>Add Members</h2>
-
-        <p>
-            Add each traveler's preferences
-        </p>
-
-    </div>
-
-    <div class="member-form">
-
-        <div class="grid">
-
-            <div class="input-group">
-
-                <label class="form-label">Member Name</label>
-
-                <input
-                    type="text"
-                    id="memberName"
-                    placeholder="e.g., Rahul">
-
-            </div>
-
-            <div class="input-group">
-
-                <label class="form-label">Personal Budget</label>
-
-                <input
-                    type="number"
-                    id="memberBudget"
-                    placeholder="e.g., 10000">
-
-            </div>
-
+        <div class="step-header">
+            <h2>Add Members</h2>
+            <p>Add each traveler's preferences</p>
         </div>
-
-        <div class="input-group">
-
-            <label class="form-label">Interests</label>
-
-            <div class="member-interests">
-
-                <button type="button" class="member-interest" value="Food">
-                    Food
-                </button>
-
-                <button type="button" class="member-interest" value="Adventure">
-                    Adventure
-                </button>
-
-                <button type="button" class="member-interest" value="Nature">
-                    Nature
-                </button>
-
-                <button type="button" class="member-interest" value="Nightlife">
-                    Nightlife
-                </button>
-
-                <button type="button" class="member-interest" value="Culture">
-                    Culture
-                </button>
-
+        <div class="member-form">
+            <div class="grid">
+                <div class="input-group">
+                    <label class="form-label">Member Name</label>
+                    <input type="text" id="memberName" placeholder="e.g., Rahul">
+                </div>
+                <div class="input-group">
+                    <label class="form-label">Personal Budget</label>
+                    <input type="number" id="memberBudget" placeholder="e.g., 10000">
+                </div>
             </div>
-
+            <div class="input-group">
+                <label class="form-label">Interests</label>
+                <div class="member-interests">
+                    <button type="button" class="member-interest" value="Food">Food</button>
+                    <button type="button" class="member-interest" value="Adventure">Adventure</button>
+                    <button type="button" class="member-interest" value="Nature">Nature</button>
+                    <button type="button" class="member-interest" value="Nightlife">Nightlife</button>
+                    <button type="button" class="member-interest" value="Culture">Culture</button>
+                </div>
+            </div>
+            <button type="button" id="addMemberBtn" class="primary-btn">Add Member</button>
         </div>
+        <div id="membersContainer"></div>
+        <div class="button-row">
+            <button type="button" id="reviewBtn" class="primary-btn">Review Trip →</button>
+        </div>
+    </section>
 
-        <button
-            type="button"
-            id="addMemberBtn"
-            class="primary-btn">
+    <section id="step3" class="card">
+        <div class="step-header">
+            <h2>Review & Plan</h2>
+            <p>Review everyone's preferences</p>
+        </div>
+        <div id="reviewContainer"></div>
+        <div class="button-row">
+            <button type="button" id="generatePlanBtn" class="primary-btn">Generate Plan</button>
+        </div>
+    </section>
 
-            Add Member
-
-        </button>
-
-    </div>
-
-    <div id="membersContainer">
-
-    </div>
-
-    <div class="button-row">
-
-        <button
-            type="button"
-            id="reviewBtn"
-            class="primary-btn">
-
-            Review Trip →
-
-        </button>
-
-    </div>
-
-</section>
-
-<section id="step3" class="card">
-
-    <div class="step-header">
-
-        <h2>Review & Plan</h2>
-
-        <p>
-            Review everyone's preferences
-        </p>
-
-    </div>
-
-    <div id="reviewContainer">
-
-    </div>
-
-    <div class="button-row">
-
-        <button
-            id="generatePlanBtn"
-            class="primary-btn">
-
-            Generate Plan ✨
-
-        </button>
-
-    </div>
-
-</section>
-
+    <div id="finalItineraryOutput" style="margin-top: 30px; width: 100%;"></div>
 </div>
 
-
+<div id="customConfirmModal" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Incomplete Roster</h3>
+        </div>
+        <p id="modalConfirmMessage">You configured space for more members. Proceed anyway?</p>
+        <div class="modal-actions">
+            <button type="button" id="modalCancelBtn" class="modal-btn secondary">Go Back</button>
+            <button type="button" id="modalOkBtn" class="modal-btn primary">Proceed</button>
+        </div>
+    </div>
+</div>
 
 <script src="{{ url_for('static', filename='js/generate.js') }}"></script>
-
 </body>
 </html>

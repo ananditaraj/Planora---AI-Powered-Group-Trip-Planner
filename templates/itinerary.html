@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your AI Itinerary | Planora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fdfcfb;
+            font-family: 'DM Sans', sans-serif;
+            color: #3a3835;
+            padding: 60px 20px;
+            margin: 0;
+        }
+        .itinerary-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #efeae4;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 4px 30px rgba(227, 183, 186, 0.04);
+        }
+        .itinerary-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: #2b2927;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #f6f3ef;
+            padding-bottom: 15px;
+        }
+        .itinerary-summary {
+            font-size: 16px;
+            font-style: italic;
+            color: #6e6864;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+        .section-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #a67377;
+            margin: 35px 0 15px 0;
+            border-bottom: 1px solid #f6f3ef;
+            padding-bottom: 5px;
+        }
+        .day-card {
+            background: #faf8f5;
+            border: 1px solid #efeae4;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .day-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #2b2927;
+            margin: 0 0 12px 0;
+        }
+        .day-card p {
+            font-size: 15px;
+            margin: 0 0 8px 0;
+            color: #57524e;
+            line-height: 1.5;
+        }
+        .day-card p strong {
+            color: #4a4542;
+        }
+        .packing-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .packing-list li {
+            background: #faf8f5;
+            border: 1px solid #efeae4;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #57524e;
+        }
+        .grid-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+        }
+        .breakdown-box {
+            background: #faf8f5;
+            border: 1px solid #efeae4;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #57524e;
+            line-height: 1.4;
+        }
+        .breakdown-box strong {
+            color: #a67377;
+            display: block;
+            margin-bottom: 4px;
+        }
+        @media (max-width: 600px) {
+            .itinerary-container { padding: 24px; }
+            .grid-breakdown { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="itinerary-container">
+    <h1 class="itinerary-title">Planora Travel Itinerary</h1>
+    <p id="summaryTarget" class="itinerary-summary"></p>
+
+    <h3 class="section-heading">Schedule Details</h3>
+    <div id="daysTarget"></div>
+
+    <h3 class="section-heading">Packing Recommendations</h3>
+    <ul id="packingTarget" class="packing-list"></ul>
+
+    <h3 class="section-heading">Estimated Budget Distribution</h3>
+    <div id="budgetTarget" class="grid-breakdown"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rawData = sessionStorage.getItem("generatedItinerary");
+        if (!rawData) {
+            document.querySelector(".itinerary-container").innerHTML = "<h3>No active trip plan sequence found.</h3>";
+            return;
+        }
+
+        const data = JSON.parse(rawData);
+
+        document.getElementById("summaryTarget").textContent = data.summary || "";
+
+        let daysHtml = "";
+        if (data.days && Array.isArray(data.days)) {
+            data.days.forEach(d => {
+                daysHtml += `
+                    <div class="day-card">
+                        <h4>Day ${d.day}: ${d.title}</h4>
+                        <p><strong>Morning:</strong> ${d.morning}</p>
+                        <p><strong>Afternoon:</strong> ${d.afternoon}</p>
+                        <p><strong>Evening:</strong> ${d.evening}</p>
+                    </div>
+                `;
+            });
+        }
+        document.getElementById("daysTarget").innerHTML = daysHtml;
+
+        if (data.packing_list && Array.isArray(data.packing_list)) {
+            document.getElementById("packingTarget").innerHTML = data.packing_list
+                .map(item => `<li>${item}</li>`).join("");
+        }
+
+        if (data.budget_breakdown) {
+            document.getElementById("budgetTarget").innerHTML = `
+                <div class="breakdown-box">
+                    <strong>Accommodation</strong>
+                    <p style="margin: 4px 0 0 0; font-size: 13px; color: #6e6864;">${data.budget_breakdown.accommodation || 'Allocation arranged'}</p>
+                </div>
+                <div class="breakdown-box">
+                    <strong>Food and Dining</strong>
+                    <p style="margin: 4px 0 0 0; font-size: 13px; color: #6e6864;">${data.budget_breakdown.food || 'Allocation arranged'}</p>
+                </div>
+                <div class="breakdown-box">
+                    <strong>Transport</strong>
+                    <p style="margin: 4px 0 0 0; font-size: 13px; color: #6e6864;">${data.budget_breakdown.transport || 'Allocation arranged'}</p>
+                </div>
+                <div class="breakdown-box">
+                    <strong>Activities</strong>
+                    <p style="margin: 4px 0 0 0; font-size: 13px; color: #6e6864;">${data.budget_breakdown.activities || 'Allocation arranged'}</p>
+                </div>
+            `;
+        }
+    });
+</script>
+
+</body>
+</html>
