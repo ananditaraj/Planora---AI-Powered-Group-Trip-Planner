@@ -1,4 +1,4 @@
-# ✈️ Planora — AI-Powered Group Travel Planner
+# ✿ Planora — AI-Powered Group Travel Planner
 
 <p align="center">
   <img src="./assets/banner.png" alt="Planora Banner" width="100%" />
@@ -21,7 +21,7 @@
 
 Planning trips with a group is historically chaotic—bogged down by endless chat threads, fragmented budget spreadsheets, and conflicting destination itineraries.
 
-**Planora** structuralizes group travel coordination into a unified, AI-driven collaborative ecosystem. It empowers groups to co-create trip scopes, align budgets, vote on tracks dynamically, and deploy hyper-personalized schedules instantly without conversational fatigue.
+**Planora** structuralises group travel coordination into a unified, AI-driven collaborative ecosystem. It empowers groups to co-create trip scopes, align budgets, vote on tracks dynamically, and deploy hyper-personalised schedules instantly without conversational fatigue.
 
 ---
 
@@ -33,10 +33,10 @@ Planning trips with a group is historically chaotic—bogged down by endless cha
 
 ### 👥 High-Fidelity Group Collaboration
 * **Dynamic Voting Matrix:** Resolves cluster preference friction with weighted recommendation scores for destinations, lodging, and timelines.
-* **State Persistence:** Preserves active workspace sessions across components utilizing persistent client-side storage layers for frictionless user navigation.
+* **State Persistence:** Preserves active workspace sessions across components utilising persistent client-side storage layers for frictionless user navigation.
 
 ### 💰 Scalable Resource Planning
-* **Proportional Allocation:** Computes estimated cost metrics against dynamic traveler sizing algorithms.
+* **Proportional Allocation:** Computes estimated cost metrics against dynamic traveller sizing algorithms.
 * **Granular Tracking:** Breaks down expenditures via an interactive dashboard displaying actual vs. estimated fiscal overviews.
 
 ---
@@ -59,17 +59,9 @@ Planning trips with a group is historically chaotic—bogged down by endless cha
 * **Interface Layer:** Semantic HTML5, Modular CSS3 Custom Properties, Vanilla JavaScript (ES6+ App Context).
 * **AI Orchestration Layer:** Gemini API SDK, Programmatic Structural JSON Handlers.
 * **Client Data Pipeline:** Web Storage API (LocalStorage Event Buffering).
-
-### Core Architecture Roadmap
-* **Framework Layer:** React.js / Next.js (TypeScript Configuration).
-* **Styles Vector:** Tailwind CSS Engine.
-* **Service Ecosystem:** Node.js, Express.js micro-framework blocks running over PostgreSQL relations.
-
 ---
 
 ## 📂 Repository Blueprint
-
-```text
 Planora/
 │
 ├── assets/           # Digital media models & interface branding components
